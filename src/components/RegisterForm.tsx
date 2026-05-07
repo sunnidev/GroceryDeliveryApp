@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import GoogleImage from '@/src/assets/GoogleIcon.png'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 
 type propType = {
     prevStep: (s: number) => void
@@ -112,7 +113,7 @@ const RegisterForm = ({ prevStep }: propType) => {
                     <span className='flex-1 h-px bg-gray-200'></span>
                 </div>
 
-                <button className='w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200'>
+                <button onClick={() => signIn("google")} className='w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200'>
                     <Image src={GoogleImage} alt="Google Logo" width={20} height={20} className='inline-block mr-2' />
                     Continue with Google
                 </button>
