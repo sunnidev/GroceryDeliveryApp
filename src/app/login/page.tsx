@@ -20,7 +20,7 @@ const Login = () => {
     const router = useRouter()
 
     const session = useSession()
-    console.log(session) 
+    console.log(session)
 
     const handleLogin = async (e: React.FormEvent) => {
         setLoading(true)
@@ -28,7 +28,7 @@ const Login = () => {
         try {
             const result = await signIn('credentials', { email, password, redirect: false })
             setLoading(false)
-            // router.push('/')
+            router.push('/')
         } catch (error) {
             console.log(error)
             setLoading(false)
@@ -102,10 +102,12 @@ const Login = () => {
                     <span className='flex-1 h-px bg-gray-200'></span>
                 </div>
 
-                <button onClick={() => signIn("google")} className='w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200'>
+                <div onClick={() => signIn("google", {
+                    callbackUrl: '/'
+                })} className='w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200'>
                     <Image src={GoogleImage} alt="Google Logo" width={20} height={20} className='inline-block mr-2' />
                     Continue with Google
-                </button>
+                </div>
 
             </motion.form>
 
