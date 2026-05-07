@@ -26,7 +26,9 @@ const connectDb = async () => {
         return conn
 
     } catch (error) {
-        console.log(error)
+        cached.promise = null; // Clear cached promise on failure
+        console.log("Database connection error:", error)
+        throw error;
     }
 }
 
