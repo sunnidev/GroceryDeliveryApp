@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Provider from "../provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,9 @@ export default function RootLayout({
   return (
     <html
       lang="en">
-      <body className="bg-linear-to-b from-green-100 to-white min-h-screen w-full" suppressHydrationWarning>{children}</body>
+      <Provider>
+        <body className="bg-linear-to-b from-green-100 to-white min-h-screen w-full" suppressHydrationWarning>{children}</body>
+      </Provider>
     </html>
   );
 }
