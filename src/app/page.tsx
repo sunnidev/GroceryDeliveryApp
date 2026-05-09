@@ -4,6 +4,7 @@ import User from '../models/user.model'
 import { auth } from '../auth'
 import { redirect } from 'next/navigation'
 import EditRoleMobile from '../components/EditRoleMobile'
+import Nav from '../components/Nav'
 
 const home = async () => {
 
@@ -21,9 +22,9 @@ const home = async () => {
   }
 
   return (
-    <div>
-      Hello How are yo
-    </div>
+    <>
+      <Nav  user={user}/>
+    </>
   )
 }
 
