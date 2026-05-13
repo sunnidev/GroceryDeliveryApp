@@ -3,9 +3,11 @@ import React, { useState } from 'react'
 import { motion } from 'motion/react'
 import { ArrowRight, Bike, User, UserCog } from 'lucide-react'
 import axios from 'axios'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 const EditRoleMobile = () => {
+  const router = useRouter()
+
 
   const [roles, setRoles] = useState([
     { id: "admin", label: "Admin", icon: UserCog },
@@ -22,7 +24,7 @@ const EditRoleMobile = () => {
         role: selectedRole,
         mobile: mobile
       })
-      redirect('/')
+      router.push('/')
       console.log(result.data)
     } catch (error) {
       console.error("Error editing role:", error)

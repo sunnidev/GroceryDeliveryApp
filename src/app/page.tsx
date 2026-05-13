@@ -5,6 +5,9 @@ import { auth } from '../auth'
 import { redirect } from 'next/navigation'
 import EditRoleMobile from '../components/EditRoleMobile'
 import Nav from '../components/Nav'
+import AdminDashboard from '../components/AdminDashboard'
+import DeliveryBoy from '../components/DeliveryBoy'
+import UserDashboard from '../components/UserDashboard'
 
 const home = async () => {
 
@@ -12,18 +15,22 @@ const home = async () => {
   const session = await auth()
   const user = await User.findById(session?.user?.id)
 
-  if(!user) {
+  if (!user) {
     redirect('/login')
   }
 
-  const inComplete = !user.mobile || !user.role ||(!user.mobile && user.role =='user')
-  if(inComplete) {
+  const inComplete = !user.mobile || !user.role || (!user.mobile && user.role == 'user')
+  if (inComplete) {
     return <EditRoleMobile />
   }
 
+  const plainUser = JSON.parse(JSON.stringify(user))
+
   return (
     <>
-      <Nav  user={user}/>
+      <Nav user={plainUser} />
+      {user.role == 'admin' ? (<AdminDashboard />) :
+        (user.role == 'user' ? (<UserDashboard />) : (<DeliveryBoy />))}
     </>
   )
 }
