@@ -79,7 +79,7 @@ const Nav = ({ user }: { user: IUser }) => {
 
 
                 <div className='mt-8 flex flex-col gap-2 grow'>
-                    <Link href={""} className='flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors'>
+                    <Link href={"/admin/add-grocery"} className='flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors'>
                         <PlusCircle className='w-5 h-5 text-green-400' />
                         <span className='font-medium text-lg'>Add Grocery</span>
                     </Link>
@@ -134,7 +134,7 @@ const Nav = ({ user }: { user: IUser }) => {
 
                 {user.role == 'admin' && <>
                     <div className='hidden md:flex items-center gap-4'>
-                        <Link href={""} className='flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-full hover:bg-green-100 transition-all'><PlusCircle className='w-5 h-5' /> Add Grocery</Link>
+                        <Link href={"/admin/add-grocery"} className='flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-full hover:bg-green-100 transition-all'><PlusCircle className='w-5 h-5' /> Add Grocery</Link>
                         <Link href={""} className='flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-full hover:bg-green-100 transition-all'><Boxes className='w-5 h-5' /> View Grocery</Link>
                         <Link href={""} className='flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-full hover:bg-green-100 transition-all'><ClipboardCheck className='w-5 h-5' /> Manage Orders</Link>
                     </div>
