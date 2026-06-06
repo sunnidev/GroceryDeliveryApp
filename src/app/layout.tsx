@@ -27,7 +27,7 @@ export default function RootLayout({
     <html
       lang="en">
       <Provider>
-        <body className="bg-linear-to-b from-green-50 to-white min-h-screen w-full" suppressHydrationWarning>{children}</body>
+        <body className="bg-linear-to-b from-green-50 to-white min-h-[200vh] w-full" suppressHydrationWarning>{children}</body>
       </Provider>
     </html>
   );
